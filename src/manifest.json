@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Paranoid Parrot",
+  "description": "This extension securely loads signed resources (such as HTML, JS, CSS, images) from a web server.",
+  "version": "1.0",
+  "background": { "scripts": ["background.js"] },
+  "sandbox": {
+    "pages": ["loader.html"]
+  },
+  "permissions": [
+    "____URL____"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
