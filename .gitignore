@@ -1,3 +1,4 @@
 /jquery
 /sjcl
 /output/*
+!/output/.gitignore
