@@ -23,7 +23,7 @@ task :extension do
 
   manifest = File.read(File.join(File.dirname(__FILE__), 'src/manifest.json')).gsub('____URL____', url)
 
-  %w(icon.png sjcl.ecdsa.min.js jquery.ajax.min.js background.js loader.html).each { |file|
+  %w(icon16.png icon19.png icon38.png icon48.png icon128.png sjcl.ecdsa.min.js jquery.ajax.min.js background.js loader.html).each { |file|
     FileUtils.copy File.join(File.dirname(__FILE__), "src/#{file}"), File.join(output, file)
   }
 
