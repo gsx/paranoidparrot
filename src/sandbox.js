@@ -1,9 +1,9 @@
 window.addEventListener('message', function(event) {
   if (event.source == window.top) {
-    if (event.data) {
-      eval(event.data);
+    if (event.data[0]) {
+      eval(event.data[1]);
     } else {
-      alert("failed to load resource");
+      alert(event.data[1]);
     }
   }
 });

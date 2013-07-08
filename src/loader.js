@@ -21,8 +21,8 @@ function secureLoadData(url, success, failure) {
 
 window.addEventListener('message', function(event) {
   secureLoadData(event.data, function(data) {
-      event.source.postMessage(data, '*')
-    }, function() {
-      event.source.postMessage(false, '*')
+      event.source.postMessage([true, data], '*')
+    }, function(error) {
+      event.source.postMessage([false, error], '*')
     });
 });
