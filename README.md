@@ -14,7 +14,13 @@ means that feedback and contributions are welcome, but using it in any real life
 
 ## Using
 
-The repository contains a Rakefile which can be used to generate the extension itself after answering a few questions. Simply
-run `rake extension`. The Rakefile also contains information on signing files. Rake tasks for creating keypairs and signing
-files are not yet implemented.
 Ruby gem dependencies can be installed by running `bundle install`.
+
+First, a keypair must be generated. This is done using the `rake generate_keys` command, which will output a public and a
+secret key to stdout. These should be stored in two separate files, as other rake tasks will ask for a 'public key file' or
+'secret key file'.
+After having generated a keypair, arbitrary resources can be signed using the `rake sign_file` command. This rake task defaults
+to outputting the signature to a file with the same path as the signed file, only '.sig' is appended to the end. This is also
+the way the extension tries to load the signature from the server for a given resource.
+As the extension itself contains the public key and the URL of a javascript file to bootstrap the application as hardcoded
+values, it must be generated from source by running `rake extension`.
