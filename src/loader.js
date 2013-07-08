@@ -19,8 +19,10 @@ function secureLoadData(url, success, failure) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  secureLoadData('____URL____', function(code) {
-    eval(code);
-  }, function(msg) { document.writeln("Failed to load application. <br />" + msg) });
+window.addEventListener('message', function(event) {
+  secureLoadData(event.data, function(data) {
+      event.source.postMessage(data, '*')
+    }, function() {
+      event.source.postMessage(false, '*')
+    });
 });
